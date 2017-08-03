@@ -1,6 +1,4 @@
-The pixel mood-app now allows you some privacy through Google Oauth.  Of course, public pixel boards are available too.
+This is a to-do app I made for myself to help me with my daily and weekly tasks as I search for a job during the flight stage of the Grace Hopper Program
 
-Git cloning is no longer necessary and installing PostGres is needed to use the app!  Enjoy the glory of Firebase's Cloud Database!
-
-You can use my app here: https://pixel-moodapp.firebaseapp.com
+You can use my app here: https://todo-list-cc93c.firebaseapp.com
 # task-creator
