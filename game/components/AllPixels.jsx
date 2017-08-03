@@ -76,14 +76,16 @@ class AllTasks extends React.Component {
              <div className="row">
                <div className="col-lg-6">
                <h3>Incomplete tasks</h3>
+               <div>
                {
                  this.props.tasks.filter((task) => task.taskFrequency === 'daily' && task.taskDone === false).map(task => {
                    let taskIndex= this.props.tasks.indexOf(task)
                    return (
-                     <div key={taskIndex}><input name="Mark as Done" className="form-control" type="checkbox" onChange={() => this.onUpdateTaskSubmit(taskIndex)}></input><p>{task.taskContent}</p><button onClick={() => this.removeTaskCallback(taskIndex)}>X</button></div>
+                     <div key={taskIndex}><label><input className="task-item" type="checkbox" onChange={() => this.onUpdateTaskSubmit(taskIndex)}/>{task.taskContent} <button className="btn-danger" onClick={() => this.removeTaskCallback(taskIndex)}>X</button></label></div>
                    )
                  })
                }
+              </div>
              </div>
              <div className="col-lg-6">
              <h3>Done!</h3>
@@ -91,7 +93,7 @@ class AllTasks extends React.Component {
                this.props.tasks.filter((task) => task.taskFrequency === 'daily' && task.taskDone === true).map(task => {
                  let taskIndex= this.props.tasks.indexOf(task)
                  return (
-                   <div key={taskIndex}><input className="form-control" type="checkbox" onChange={() => this.onUpdateTaskSubmit(taskIndex)}></input><p>{task.taskContent}</p><button onClick={() => this.removeTaskCallback(taskIndex)}>X</button></div>
+                   <div key={taskIndex}><input className="task-item" type="checkbox" checked={true} onChange={() => this.onUpdateTaskSubmit(taskIndex)}/>{task.taskContent} <button className="btn-danger" onClick={() => this.removeTaskCallback(taskIndex)}>X</button></div>
                  )
                })
              }
@@ -108,7 +110,7 @@ class AllTasks extends React.Component {
                 this.props.tasks.filter((task) => task.taskFrequency === 'weekly' && task.taskDone === false).map(task => {
                   let taskIndex= this.props.tasks.indexOf(task)
                   return (
-                    <div key={taskIndex}><input className="form-control" type="checkbox" onChange={() => this.onUpdateTaskSubmit(taskIndex)}></input><p>{task.taskContent}</p><button onClick={() => this.removeTaskCallback(taskIndex)}>X</button></div>
+                    <div key={taskIndex}><label><input className="task-item" type="checkbox" onChange={() => this.onUpdateTaskSubmit(taskIndex)}/>{task.taskContent} <button className="btn-danger" onClick={() => this.removeTaskCallback(taskIndex)}>X</button></label></div>
                   )
                 })
               }
@@ -119,7 +121,7 @@ class AllTasks extends React.Component {
               this.props.tasks.filter((task) => task.taskFrequency === 'weekly' && task.taskDone === true).map(task => {
                 let taskIndex= this.props.tasks.indexOf(task)
                 return (
-                  <div key={taskIndex}><input className="form-control" type="checkbox" checked={true} onChange={() => this.onUpdateTaskSubmit(taskIndex)}></input><p>{task.taskContent}</p><button onClick={() => this.removeTaskCallback(taskIndex)}>X</button></div>
+                  <div key={taskIndex}><input className="task-item" type="checkbox" checked={true} onChange={() => this.onUpdateTaskSubmit(taskIndex)}/>{task.taskContent} <button className="btn-danger" onClick={() => this.removeTaskCallback(taskIndex)}>X</button></div>
                 )
               })
             }
@@ -135,7 +137,7 @@ class AllTasks extends React.Component {
                this.props.tasks.filter((task) => task.taskFrequency === 'once').map(task => {
                  let taskIndex= this.props.tasks.indexOf(task)
                  return (
-                   <div key={taskIndex}><button onClick={() => this.removeTaskCallback(taskIndex)}>X</button><p>{task.taskContent}</p></div>
+                   <div key={taskIndex}><label>{task.taskContent} <button className="btn-danger" onClick={() => this.removeTaskCallback(taskIndex)}>X</button></label></div>
                  )
                })
              }
